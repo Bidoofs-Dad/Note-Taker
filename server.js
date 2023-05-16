@@ -21,8 +21,8 @@ app.get("/api/notes", (req, res) => {
 })
 
 app.post('/api/notes', (req, res) => {
-    const { title, text} = req.body;
-    const id = uuidv();
+    const { title, text } = req.body;
+    const id = uuidv4();
 
     const newData = {
         title,
@@ -50,6 +50,30 @@ app.post('/api/notes', (req, res) => {
         });
 });
 
+app.delete('/api/notes/:id', (req, res) => {
+    const noteId = req.params.id;
+
+    fs.readFile('./db/db.json', 'utf8', (err, fileData) => {
+        if (err) {
+            console.error('Error reading JSON file:', err);
+            return res.status(500).json({ message: 'Failed to read data.' });
+        }
+
+        let jsonData = JSON.parse(fileData);
+
+        const updatedData = jsonData.filter((note) => note.id !== noteId);
+
+        fs.writeFile('./db/db.json', JSON.stringify(updatedData), (err) => {
+            if (err) {
+                console.error('Error writing JSON file:', err);
+                return res.status(500).json({ message: 'Failed to save data.' });
+            }
+
+            console.log('Data saved successfully.');
+            res.status(200).json({ message: 'Note deleted successfully.' });
+        });
+    });
+});
 
 
 app.get("*", (req, res) => {
