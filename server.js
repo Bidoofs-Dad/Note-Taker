@@ -1,6 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const { v4: uuidv4 } = require('uuid');
 const notesData = require("./db/db.json")
 
 const PORT = 3001;
@@ -20,11 +21,13 @@ app.get("/api/notes", (req, res) => {
 })
 
 app.post('/api/notes', (req, res) => {
-    const { title, text } = req.body;
+    const { title, text} = req.body;
+    const id = uuidv();
 
     const newData = {
         title,
-        text
+        text,
+        id
     };
 
     let jsonData = [];
