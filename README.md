@@ -22,9 +22,9 @@ I had a couple issues along the way, some solved, some are still present;
 
 Below I will include some screenshots of the application working!
 
-![Note Taker](./assets/Screenshot%201.png)
-![Note Taker](./assets/Screenshot%202.png)
-![Note Taker](./assets/Screenshot%203.png)
+![Note Taker](./Assets/Screenshot%201.png)
+![Note Taker](./Assets/Screenshot%202.png)
+![Note Taker](./Assets/Screenshot%203.png)
 
 
 ## Conclusion
