@@ -39,4 +39,4 @@ https://github.com/Bidoofs-Dad/SVG-Logo-Maker
 
 The link below this, will take you to the live page!
 
--put link here when heroku is fixed-
+https://note-taker-q60c.onrender.com/
